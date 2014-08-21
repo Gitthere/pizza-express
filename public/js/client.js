@@ -7,13 +7,12 @@ $ (function() {
         var veggiesOnPizza = data[i].toppings.veggies;
         var meatOnPizza = data[i].toppings.meats;
         var sizeOfPizza = data[i].size;
-        var pizza = veggiesOnPizza + meatOnPizza + sizeOfPizza;
-        // console.log(typeOfPizza); 
+        var pizza = veggiesOnPizza + meatOnPizza + '<br>' + sizeOfPizza + '</br>'; 
         console.log(sizeOfPizza);
         $('.order-list').append('<li>' + pizza + '</li>');
-        // $('.order-list').append('<li>' + sizeOfPizza + '</li>');
       }
     },
+
     failure: function(error) {
 
     },
