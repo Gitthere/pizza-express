@@ -4,10 +4,15 @@ $ (function() {
     method: "GET",
     success: function(data) {
       for (var i = 0; i < data.length; i++) {
-        var typeOfPizza = data[i].toppings;
-        console.log(typeOfPizza); 
+        var veggiesOnPizza = data[i].toppings.veggies;
+        var meatOnPizza = data[i].toppings.meats;
+        var sizeOfPizza = data[i].size;
+        var pizza = veggiesOnPizza + meatOnPizza + sizeOfPizza;
+        // console.log(typeOfPizza); 
+        console.log(sizeOfPizza);
+        $('.order-list').append('<li>' + pizza + '</li>');
+        // $('.order-list').append('<li>' + sizeOfPizza + '</li>');
       }
-      $('.order-list').data(data);
     },
     failure: function(error) {
 
