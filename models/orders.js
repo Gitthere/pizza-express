@@ -2,13 +2,14 @@ var express = require('express');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var placeOrder = require('./../lib/generateOrder');
-var orders = {}
+var orders = {};
 
 // mongodb URL here
 mongoose.connect('mongodb://pizza-express:pizza-express@ds063899.mongolab.com:63899/pizza-express');
 
+
 var OrdersSchema = Schema({
-  sizes: String,
+  size: String,
   toppings: {
     meats: Array,
     veggies: Array
@@ -17,7 +18,7 @@ var OrdersSchema = Schema({
 
 var Order = mongoose.model('Order', OrdersSchema);
 
-orders.getAllPizzaOrders = function (req, res) {
+orders.getAllPizzaOrders = function(req, res){
   Order.find({}, function (err, orders) {
     if (err) {
       console.log("error getting all pizzas", err); return;
@@ -26,6 +27,26 @@ orders.getAllPizzaOrders = function (req, res) {
   });
 };
 
+orders.createOrder = function(req, res){
+  var newOrder = new Order({
+    size: req.param('sizes'),
+    toppings: {
+      meats: req.param('meats'),
+      veggies: req.param('veggies')
+    }
+  });
+
+  newOrder.save(function (err){
+    if (err) {
+      console.log("error@ createOrder", err);
+      return err;
+    }
+    res.json(newOrder);
+  });
+};
+
+
+// abandon hope, ye who hits this route more than once
 orders.generateOrders = function (req, res) {
   var newOrder = new Order(placeOrder.generate());
 
