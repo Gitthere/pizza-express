@@ -8,55 +8,50 @@ html
     .container Please Fill Out The Order Form Below
       //- form to POST a new order to the servers '/orders'
       div
-        form.order-form(action="/", method="POST", enctype="application/x-www-form-urlencoded")
+        form.order-form
           p 
-            select 
+            select(name="size") 
               option(value="small") Small 
               option(value="medium") Medium
               option(value="large") Large 
-            //- label#pizzaSize(for="size_input") Please Select Size
-            //- input.size_input(size="sizeOrdered", type="checkbox", value="small")
           p Please Select Your Meat Toppings: 
-            input(type="checkbox", name="meat", value="bacon")
+            input(type="checkbox", name="toppings.meats[]", value="bacon")
             | bacon
-            input(type="checkbox", name="meat", value="pepperoni")
+            input(type="checkbox", name="toppings.meats[]", value="pepperoni")
             | pepperoni
-            input(type="checkbox", name="meat", value="ham")
+            input(type="checkbox", name="toppings.meats[]", value="ham")
             | ham
-            input(type="checkbox", name="meat", value="beef_topping")
+            input(type="checkbox", name="toppings.meats[]", value="beef_topping")
             | beef topping
-            input(type="checkbox", name="meat", value="italian_sausage")
+            input(type="checkbox", name="toppings.meats[]", value="italian_sausage")
             | italian sausage
-            input(type="checkbox", name="meat", value="pork_topping")
+            input(type="checkbox", name="toppings.meats[]", value="pork_topping")
             | pork topping
-            input(type="checkbox", name="meat", value="grilled_chicken")
+            input(type="checkbox", name="toppings.meats[]", value="grilled_chicken")
             | grilled chicken
-            
-            //- label#meatToppings(for="meatToppings_input") Type of Meat Toppings
-            //- input.meatToppings_input(typeOfMeatTopping="typeOfMeatTopping", type="text")
           p Please Select Your Veggie Toppings:
-            input(type="checkbox", name="meat", value="spinach")
+            input(type="checkbox", name="toppings.veggies[]", value="spinach")
             | spinach
-            input(type="checkbox", name="meat", value="green_peppers")
+            input(type="checkbox", name="toppings.veggies[]", value="green_peppers")
             | green peppers
-            input(type="checkbox", name="meat", value="red_onions")
+            input(type="checkbox", name="toppings.veggies[]", value="red_onions")
             | red onions
-            input(type="checkbox", name="meat", value="mushrooms")
+            input(type="checkbox", name="toppings.veggies[]", value="mushrooms")
             | mushrooms
-            input(type="checkbox", name="meat", value="black_olives")
+            input(type="checkbox", name="toppings.veggies[]", value="black_olives")
             | black olives
-            input(type="checkbox", name="meat", value="tomatoes")
+            input(type="checkbox", name="toppings.veggies[]", value="tomatoes")
             | tomatoes
-            input(type="checkbox", name="meat", value="pineapple")
+            input(type="checkbox", name="toppings.veggies[]", value="pineapple")
             | pineapple 
-            input(type="checkbox", name="meat", value="jalapenos")
+            input(type="checkbox", name="toppings.veggies[]", value="jalapenos")
             | jalapenos
-            input(type="checkbox", name="meat", value="garlic")
-            | garlic
-            //- label#veggieToppings(for="veggieToppings_input") Type of Veggie Toppings
-            //- input.veggieToppings_input(typeOfVeggieTopping="typeOfVeggieTopping", type="text")      
-      button#submitOrderButton(type="submit") Submit Your Order
+            input(type="checkbox", name="toppings.veggies[]", value="garlic")
+            | garlic     
+          button#submitOrderButton(type="submit") Submit Your Order
       .work-header
         h1 Order Queue
+        form#deleteForm
+          button#deleteButton(type="delete") Delete Order
       .order-list
         //- orders appear

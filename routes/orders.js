@@ -10,8 +10,8 @@ router.route('/')
 
   .post(function (req, res) {
     console.log('in post function');
-    res.send(200);
-    // database.createOrder(req, res);
+    // res.send(200);
+    database.createOrder(req, res);
   })
   .delete(function (req, res) {
     res.send("Fucking deleting orders");
