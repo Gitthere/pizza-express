@@ -8,7 +8,9 @@ router.route('/')
     database.getAllPizzaOrders(req, res);
   })
   .post(function (req, res) {
-    database.createOrder(req, res);
+    console.log('in post function');
+    res.send(200);
+    // database.createOrder(req, res);
   })
   .delete(function (req, res) {
     res.send("Fucking deleting orders");

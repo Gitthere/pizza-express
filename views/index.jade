@@ -5,9 +5,20 @@ html
     script(src="/js/client.js")
     title Pizza Express!!!
   body
-    .container
-      .order-form
-        //- form to POST a new order to the servers '/orders'
+    .container Please Fill Out The Order Form Below
+      //- form to POST a new order to the servers '/orders'
+      div
+        form.order-form(action="/", method="POST", enctype="application/x-www-form-urlencoded")
+          p 
+            label#pizzaSize(for="size_input") Size 
+            input.size_input(size="sizeOrdered", type="text")
+          p 
+            label#meatToppings(for="meatToppings_input") Type of Meat Toppings
+            input.meatToppings_input(typeOfMeatTopping="typeOfMeatTopping", type="text")
+          p 
+            label#veggieToppings(for="veggieToppings_input") Type of Veggie Toppings
+            input.veggieToppings_input(typeOfVeggieTopping="typeOfVeggieTopping", type="text")      
+      button#submitOrderButton(type="submit") Submit Your Order
       .work-header
         h1 Order Queue
       .order-list
