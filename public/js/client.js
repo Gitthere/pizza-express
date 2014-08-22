@@ -24,7 +24,7 @@ $ (function() {
     var newOrder = {};
     newOrder.size = $('.size_input');
     newOrder.toppings = {};
-    newOrder.toppings.meat = $('.meatToppings_input');
+    newOrder.toppings.meat = $('.meatToppings_input').split(" ");
     console.log(newOrder);
     // $.ajax("/orders", {
     //   method: "POST",

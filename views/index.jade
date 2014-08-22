@@ -10,14 +10,51 @@ html
       div
         form.order-form(action="/", method="POST", enctype="application/x-www-form-urlencoded")
           p 
-            label#pizzaSize(for="size_input") Size 
-            input.size_input(size="sizeOrdered", type="text")
-          p 
-            label#meatToppings(for="meatToppings_input") Type of Meat Toppings
-            input.meatToppings_input(typeOfMeatTopping="typeOfMeatTopping", type="text")
-          p 
-            label#veggieToppings(for="veggieToppings_input") Type of Veggie Toppings
-            input.veggieToppings_input(typeOfVeggieTopping="typeOfVeggieTopping", type="text")      
+            select 
+              option(value="small") Small 
+              option(value="medium") Medium
+              option(value="large") Large 
+            //- label#pizzaSize(for="size_input") Please Select Size
+            //- input.size_input(size="sizeOrdered", type="checkbox", value="small")
+          p Please Select Your Meat Toppings: 
+            input(type="checkbox", name="meat", value="bacon")
+            | bacon
+            input(type="checkbox", name="meat", value="pepperoni")
+            | pepperoni
+            input(type="checkbox", name="meat", value="ham")
+            | ham
+            input(type="checkbox", name="meat", value="beef_topping")
+            | beef topping
+            input(type="checkbox", name="meat", value="italian_sausage")
+            | italian sausage
+            input(type="checkbox", name="meat", value="pork_topping")
+            | pork topping
+            input(type="checkbox", name="meat", value="grilled_chicken")
+            | grilled chicken
+            
+            //- label#meatToppings(for="meatToppings_input") Type of Meat Toppings
+            //- input.meatToppings_input(typeOfMeatTopping="typeOfMeatTopping", type="text")
+          p Please Select Your Veggie Toppings:
+            input(type="checkbox", name="meat", value="spinach")
+            | spinach
+            input(type="checkbox", name="meat", value="green_peppers")
+            | green peppers
+            input(type="checkbox", name="meat", value="red_onions")
+            | red onions
+            input(type="checkbox", name="meat", value="mushrooms")
+            | mushrooms
+            input(type="checkbox", name="meat", value="black_olives")
+            | black olives
+            input(type="checkbox", name="meat", value="tomatoes")
+            | tomatoes
+            input(type="checkbox", name="meat", value="pineapple")
+            | pineapple 
+            input(type="checkbox", name="meat", value="jalapenos")
+            | jalapenos
+            input(type="checkbox", name="meat", value="garlic")
+            | garlic
+            //- label#veggieToppings(for="veggieToppings_input") Type of Veggie Toppings
+            //- input.veggieToppings_input(typeOfVeggieTopping="typeOfVeggieTopping", type="text")      
       button#submitOrderButton(type="submit") Submit Your Order
       .work-header
         h1 Order Queue
