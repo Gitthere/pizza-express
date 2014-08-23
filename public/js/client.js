@@ -7,7 +7,8 @@ $(document).ready(function() {
       var meatOnPizza = data.toppings.meats;
       var sizeOfPizza = data.size;
       var pizza = veggiesOnPizza + "  " + meatOnPizza + ' <br> ' + sizeOfPizza;
-      $('order-list').append('<li>' + pizza + '</li>');
+      //add li so that can append delete button
+      $('.order-list').append('<li>' + pizza + '</li>').append;
       return;
     } else {
       for (var i = 0; i < data.length; i++) {
@@ -36,10 +37,12 @@ $(document).ready(function() {
     $('.order-form').submit(function(orders) {
       //format form data into JSON object
       //split (" "), then push
+      //keeps browser from sending info to server
       event.preventDefault();
       $.ajax("/orders", {
         method: "POST",
-        data: $('.order-form').serialize(),
+        data: $('.order-form').serialize(),//takes data out of the form 
+        //and makes it a JSON object i.e. toppings.meats into an array
         success: newPizzaOrder, 
 
         failure: function(error) {

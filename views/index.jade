@@ -48,10 +48,8 @@ html
             | jalapenos
             input(type="checkbox", name="toppings.veggies[]", value="garlic")
             | garlic     
-          button#submitOrderButton(type="submit") Submit Your Order
+          input#submitOrderButton(type="submit", value="Submit Your Order") 
       .work-header
         h1 Order Queue
-        form#deleteForm
-          button#deleteButton(type="delete") Delete Order
       .order-list
         //- orders appear
